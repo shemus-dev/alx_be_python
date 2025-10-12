@@ -58,5 +58,65 @@ for p in products:
     print(p.seeproduct())
 
 
+class Point:
+    def __init__(self,x,y):
+         self.x = x
+         self.y = y
+point = Point(3,4)
+print(f"Point coordinates: ({point.x}, {point.y})")
 
+
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def __repr__(self):
+    return f"Name: {self.name}, Age: {self.age}"
+
+person = Person("Alice", 30)
+print(person)  
+
+# class Filehandler:
+#     def __init__(self,filename):
+#         self.filename = filename
+#         try:
+#             self.file = open(filename,"r")
+#         except:
+#             print(f"{filename} is not found")
+
+#     def read_data(self):
+#         return self.file.read()
+    
+#     def __del__(self):
+#         self.file.close()
         
+# fileobject = Filehandler("sample.txt")
+# print(fileobject.read_data())
+
+
+#inheritance 
+# By using the super() function, you do not have to use the name of the parent element, it will 
+# automatically inherit the methods and properties from its parent.
+
+class Animal:
+  def __init__(self, name):
+    self.name = name
+
+  def make_sound(self):
+    print("Generic animal sound")
+
+class Dog(Animal):
+   def __init__(self, name,breed):
+      super().__init__(name)
+      self.breed = breed
+
+   def make_sound(self):
+      print(f"here is {self.name} {self.breed}")
+   
+dog = Dog("buddy","hiil")
+dog.make_sound()
+   
+
+
+
