@@ -14,9 +14,9 @@ class Book:
         self.title = title
         self.author = author
     
-    def get_details(self):
+    def __str__(self):
         """
-        Returns a string with book details.
+        String representation of the book.
         
         Returns:
             str: Formatted book details
@@ -42,9 +42,9 @@ class EBook(Book):
         super().__init__(title, author)
         self.file_size = file_size
     
-    def get_details(self):
+    def __str__(self):
         """
-        Returns a string with eBook details.
+        String representation of the eBook.
         
         Returns:
             str: Formatted eBook details
@@ -70,9 +70,9 @@ class PrintBook(Book):
         super().__init__(title, author)
         self.page_count = page_count
     
-    def get_details(self):
+    def __str__(self):
         """
-        Returns a string with print book details.
+        String representation of the print book.
         
         Returns:
             str: Formatted print book details
@@ -99,13 +99,10 @@ class Library:
             book: Instance of Book, EBook, or PrintBook
         """
         self.books.append(book)
-        print(f"Added: {book.title}")
     
     def list_books(self):
         """
         Print details of all books in the library.
         """
-        print("\nLibrary Collection:")
-        print("-" * 30)
         for book in self.books:
-            print(book.get_details())
+            print(book)  # This will automatically call __str__ for each book
